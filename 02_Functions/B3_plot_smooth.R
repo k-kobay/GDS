@@ -2,7 +2,7 @@
 
 
 plot.smooth <- function(calc.smooth, DataPCA, PCA=TRUE,num, axisPCs=c(1,2,3), col="mycol", axisLenVal="auto", addAxis=TRUE, day_PCA=TRUE, day_PCA_col="auto",
-                        xlim="auto", ylim="auto", zlim="auto",...){
+                        xlim="auto", ylim="auto", zlim="auto", output="normal",...){
   rslt.mat <- calc.smooth$rslt.mat
   axis.max <- calc.smooth$axis.max
   axis.min <- calc.smooth$axis.min
@@ -85,9 +85,10 @@ plot.smooth <- function(calc.smooth, DataPCA, PCA=TRUE,num, axisPCs=c(1,2,3), co
       
     }
   }
+  
+  if(output=="axis_value"){
+    invisible(data.frame(axis.min, axis.max)) 
+  }
+  
+  
 }
-
-
-
-
-

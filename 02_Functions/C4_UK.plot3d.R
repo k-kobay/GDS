@@ -18,7 +18,7 @@
 
 UK.plot3d <- function(Data, num=1, size=5, pcol="day", lcol="black", lwd=1, theta=0, phi=15, fov=60, main="", xlim="Auto", ylim="Auto", zlim="Auto", Xp=FALSE, fix=TRUE){
 	
-	# plotした情報を格納するリストを作成
+	  # plotした情報を格納するリストを作成
 
     # ret <- dPathLengthAb(D_origin, alpha=0.1, beta=Inf, nargout=2)
     
@@ -26,12 +26,12 @@ UK.plot3d <- function(Data, num=1, size=5, pcol="day", lcol="black", lwd=1, thet
     # いまは iを1と置く。1~6まででそれぞれ α= -20, -15, -10, -5, 0, 5 に対応
     
     # ret に D_alpha_list の i番目の要素を代入
-	ret <- Data$D_alpha_list[[num]]
+	  ret <- Data$D_alpha_list[[num]]
 	
-	# D に 距離行列を格納
-	D <- as.matrix(ret[[1]])
+	  # D に 距離行列を格納
+	  D <- as.matrix(ret[[1]])
 	
-	# used_edgesに最短距離に使われる辺の情報を格納
+	  # used_edgesに最短距離に使われる辺の情報を格納
     used_edges <- ret[[2]]
   
 
@@ -149,24 +149,17 @@ UK.plot3d <- function(Data, num=1, size=5, pcol="day", lcol="black", lwd=1, thet
     }
 
     if(is.na(xlim) && is.na(ylim) && is.na(zlim)){
-    	plot3d(linesM, type="l", col="black", main=main, xlab="PC1", ylab="PC2", zlab="PC3")
-    	points3d(Xp, size=size, col=col, lwd=lwd)
+      	plot3d(linesM, type="l", col="black", main=main, xlab="PC1", ylab="PC2", zlab="PC3")
+      	points3d(Xp, size=size, col=col, lwd=lwd)
     }else{
         plot3d(linesM, type="l", col="black", main=main, xlim=xlim, ylim=ylim, zlim=zlim, xlab="PC1", ylab="PC2", zlab="PC3")
         points3d(Xp, size=size, col=col, lwd=lwd)    	
     }
 
-
-    
-    
-    
-    # 複数を描画する
-　　
-
    # 視点のアングルを指定する関数
-  if(fix==TRUE){
-    rgl.viewpoint(theta=theta, phi=phi, fov=fov)
-  }
+    if(fix==TRUE){
+      rgl.viewpoint(theta=theta, phi=phi, fov=fov)
+    }
 
 	
 }

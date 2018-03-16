@@ -17,17 +17,13 @@ floyd <- function( n, a ) {
 #    Input, integer n, the order of the matrix.
 #    Input, real A(i,j), the direct distance from node i to node j.
 #    Output, real A(i,j), the shortest distance from node i to node j.
-  require(tcltk)
-  pb <- txtProgressBar(min=1, max=n, style=3)
   for (k in 1 : n) {
     for (j in 1 : n) {
       for (i in 1 : n) {
         a[i,j] <- min( a[i,j], a[i,k] + a[k,j] )
       }
     }
-    setTxtProgressBar(pb, k)
   }
-
   return( a )
 }
 #===========end================================================================
